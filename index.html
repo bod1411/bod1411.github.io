@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niharika - Data Analyst Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: 300;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .title {
+            font-size: 1.2em;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            font-size: 0.9em;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .main-content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e9ecef;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #667eea;
+        }
+
+        .summary {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-tag {
+            background: white;
+            color: #555;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .experience-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .company {
+            color: #667eea;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .duration {
+            color: #666;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .achievements {
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        .achievements li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .achievements li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 0.8em;
+        }
+
+        .education {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .degree {
+            font-weight: 600;
+            font-size: 1em;
+            margin-bottom: 5px;
+        }
+
+        .university {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .education-details {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .cert-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+            font-size: 0.9em;
+        }
+
+        .cert-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .cert-provider {
+            color: #667eea;
+            font-size: 0.85em;
+        }
+
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="name">NIHARIKA</h1>
+                <p class="title">Data Analyst & Engineer Intern</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>neha020897@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span>+91 8143872626</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Hyderabad, India</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="section">
+                <h2 class="section-title">Professional Summary</h2>
+                <p class="summary">
+                    Results-driven professional with 2+ years of experience in business analysis, data analytics, and quality engineering. Proven expertise in SQL, data visualization tools (Tableau, Power BI), and analytical platforms (Google Analytics, CleverTap). Strong background in A/B testing, market research, and predictive analytics. Seeking to leverage technical skills and analytical mindset in a data engineer/analyst intern role to drive data-driven decision making.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Data & Analytics</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Data Analysis</span>
+                            <span class="skill-tag">Tableau</span>
+                            <span class="skill-tag">Power BI</span>
+                            <span class="skill-tag">Predictive Analytics</span>
+                            <span class="skill-tag">A/B Testing</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Analytics Platforms</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Google Analytics</span>
+                            <span class="skill-tag">CleverTap</span>
+                            <span class="skill-tag">CRM Analytics</span>
+                            <span class="skill-tag">Segmentation</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Technical Tools</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Postman</span>
+                            <span class="skill-tag">REST APIs</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">Excel</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Business Intelligence</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Market Research</span>
+                            <span class="skill-tag">Business Analytics</span>
+                            <span class="skill-tag">Data Visualization</span>
+                            <span class="skill-tag">Reporting</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Business Analyst</div>
+                            <div class="company">Brit Leelaa UK Limited</div>
+                        </div>
+                        <div class="duration">Mar 2022 - Jan 2024</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Analyzed customer data using SQL and Excel to identify behavioral patterns and optimize marketing campaigns</li>
+                        <li>Implemented advanced segmentation strategies based on customer actions, increasing campaign effectiveness by analyzing engagement metrics</li>
+                        <li>Created comprehensive analytical reports using data visualization tools to track campaign performance and ROI</li>
+                        <li>Utilized CleverTap analytics platform to enhance customer lifecycle strategies and improve engagement rates</li>
+                        <li>Conducted market research and statistical analysis to identify customer needs and develop data-driven strategies</li>
+                        <li>Collaborated with cross-functional teams to translate business requirements into actionable data insights</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Product Quality Engineer</div>
+                            <div class="company">Phenom People</div>
+                        </div>
+                        <div class="duration">Apr 2021 - Jan 2022</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Performed data analysis using SQL queries to analyze quality metrics and identify improvement opportunities</li>
+                        <li>Designed and executed comprehensive test cases, managing test data and documenting results systematically</li>
+                        <li>Tested RESTful APIs using Postman to ensure efficient data transfer and system integration</li>
+                        <li>Analyzed quality data patterns to identify root causes of issues, leading to improved product quality</li>
+                        <li>Created detailed documentation and reports for quality assurance processes and outcomes</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education">
+                    <div class="degree">Bachelor of Technology - Electronics & Telecommunication</div>
+                    <div class="university">JNTU College of Engineering, Hyderabad</div>
+                    <div class="education-details">2021 • CGPA: 6.7/10</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Certifications</h2>
+                <div class="certifications">
+                    <div class="cert-item">
+                        <div class="cert-title">Transitioning to Product Management</div>
+                        <div class="cert-provider">LinkedIn Learning</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Becoming a Product Manager: Complete Guide</div>
+                        <div class="cert-provider">LIBA</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-title">Technical Sales: Sales Engineer Role</div>
+                        <div class="cert-provider">LinkedIn Learning</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
