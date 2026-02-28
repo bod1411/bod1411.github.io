@@ -1,423 +1,1048 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Niharika - Data Analyst Resume</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prasad Kumar Boddu | Data Architect & Snowflake Expert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #050d18;
+      --surface: #0b1828;
+      --surface2: #0f2035;
+      --ice: #4dd9ff;
+      --ice-dim: #1a6a8a;
+      --ice-glow: rgba(77, 217, 255, 0.12);
+      --white: #e8f4ff;
+      --muted: #6b8aa8;
+      --text: #c2daf0;
+      --accent: #00e5ff;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.4;
-            color: #333;
-            background: #f8f9fa;
-            padding: 20px;
-        }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .resume-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-radius: 12px;
-            overflow: hidden;
-        }
+    html { scroll-behavior: smooth; }
 
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-            position: relative;
-        }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.1);
-        }
+    /* Background grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(77, 217, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(77, 217, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(5, 13, 24, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(77, 217, 255, 0.08);
+    }
 
-        .name {
-            font-size: 2.5em;
-            font-weight: 300;
-            margin-bottom: 8px;
-            letter-spacing: 2px;
-        }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--ice);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
 
-        .title {
-            font-size: 1.2em;
-            font-weight: 400;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            font-size: 0.9em;
-        }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+    .nav-links a:hover { color: var(--ice); }
 
-        .main-content {
-            padding: 40px 30px;
-        }
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 4rem 4rem;
+      position: relative;
+      gap: 4rem;
+    }
 
-        .section {
-            margin-bottom: 35px;
-        }
+    .hero-content { position: relative; z-index: 1; }
 
-        .section-title {
-            font-size: 1.3em;
-            font-weight: 600;
-            color: #667eea;
-            margin-bottom: 20px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #e9ecef;
-            position: relative;
-        }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid var(--ice-dim);
+      background: var(--ice-glow);
+      color: var(--ice);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s ease forwards;
+    }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: #667eea;
-        }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--ice);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
 
-        .summary {
-            font-size: 1em;
-            line-height: 1.6;
-            color: #555;
-            text-align: justify;
-        }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
+    .hero h1 span {
+      color: transparent;
+      -webkit-text-stroke: 1px var(--ice);
+    }
 
-        .skill-category {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
 
-        .skill-category h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 0.95em;
-            font-weight: 600;
-        }
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
 
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+    }
 
-        .skill-tag {
-            background: white;
-            color: #555;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.8em;
-            border: 1px solid #e9ecef;
-            transition: all 0.3s ease;
-        }
+    .btn-primary {
+      background: var(--ice);
+      color: var(--bg);
+    }
 
-        .skill-tag:hover {
-            background: #667eea;
-            color: white;
-        }
+    .btn-primary:hover {
+      background: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(77, 217, 255, 0.3);
+    }
 
-        .experience-item {
-            margin-bottom: 25px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
+    .btn-outline {
+      background: transparent;
+      color: var(--ice);
+      border: 1px solid var(--ice-dim);
+    }
 
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-        }
+    .btn-outline:hover {
+      background: var(--ice-glow);
+      border-color: var(--ice);
+      transform: translateY(-2px);
+    }
 
-        .job-title {
-            font-weight: 600;
-            font-size: 1.1em;
-            color: #333;
-        }
+    /* HERO VISUAL */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 1s 0.4s ease both;
+    }
 
-        .company {
-            color: #667eea;
-            font-weight: 500;
-            margin-top: 2px;
-        }
+    .snowflake-ring {
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      border: 1px solid rgba(77, 217, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: spin 30s linear infinite;
+    }
 
-        .duration {
-            color: #666;
-            font-size: 0.9em;
-            font-weight: 500;
-        }
+    .snowflake-ring::before {
+      content: '';
+      position: absolute;
+      inset: 20px;
+      border-radius: 50%;
+      border: 1px dashed rgba(77, 217, 255, 0.1);
+    }
 
-        .achievements {
-            list-style: none;
-            margin-top: 12px;
-        }
+    .snowflake-ring::after {
+      content: '';
+      position: absolute;
+      inset: 50px;
+      border-radius: 50%;
+      border: 1px solid rgba(77, 217, 255, 0.08);
+    }
 
-        .achievements li {
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-            font-size: 0.9em;
-            line-height: 1.5;
-        }
+    .center-card {
+      position: absolute;
+      background: var(--surface);
+      border: 1px solid rgba(77, 217, 255, 0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      width: 220px;
+      animation: spin-reverse 30s linear infinite;
+      box-shadow: 0 0 60px rgba(77, 217, 255, 0.07);
+    }
 
-        .achievements li::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-size: 0.8em;
-        }
+    .center-card .years {
+      font-family: 'Syne', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--ice);
+      line-height: 1;
+    }
 
-        .education {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
+    .center-card .label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.5rem;
+    }
 
-        .degree {
-            font-weight: 600;
-            font-size: 1em;
-            margin-bottom: 5px;
-        }
+    /* Orbit dots */
+    .orbit-dot {
+      position: absolute;
+      width: 8px; height: 8px;
+      background: var(--ice);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--ice);
+    }
 
-        .university {
-            color: #667eea;
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
+    .orbit-dot:nth-child(1) { top: -4px; left: 50%; transform: translateX(-50%); }
+    .orbit-dot:nth-child(2) { bottom: -4px; left: 50%; transform: translateX(-50%); }
+    .orbit-dot:nth-child(3) { left: -4px; top: 50%; transform: translateY(-50%); }
+    .orbit-dot:nth-child(4) { right: -4px; top: 50%; transform: translateY(-50%); }
 
-        .education-details {
-            color: #666;
-            font-size: 0.9em;
-        }
+    /* STATS BAR */
+    .stats-bar {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(77, 217, 255, 0.08);
+      border-top: 1px solid rgba(77, 217, 255, 0.08);
+      border-bottom: 1px solid rgba(77, 217, 255, 0.08);
+    }
 
-        .certifications {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
+    .stat-item {
+      padding: 2rem 2.5rem;
+      background: var(--bg);
+      text-align: center;
+      transition: background 0.2s;
+    }
 
-        .cert-item {
-            background: white;
-            padding: 15px;
-            border-radius: 6px;
-            border: 1px solid #e9ecef;
-            font-size: 0.9em;
-        }
+    .stat-item:hover { background: var(--surface); }
 
-        .cert-title {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 5px;
-        }
+    .stat-number {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--ice);
+      line-height: 1;
+    }
 
-        .cert-provider {
-            color: #667eea;
-            font-size: 0.85em;
-        }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.4rem;
+    }
 
-        @media (max-width: 768px) {
-            .contact-info {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .experience-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .name {
-                font-size: 2em;
-            }
-        }
-    </style>
+    /* SECTION BASE */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 4rem;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ice);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-tag::before {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 1px;
+      background: var(--ice);
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 3rem;
+      line-height: 1.1;
+    }
+
+    /* EXPERTISE */
+    #expertise { background: var(--surface); }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .expertise-card {
+      background: var(--bg);
+      border: 1px solid rgba(77, 217, 255, 0.08);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .expertise-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--ice), transparent);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .expertise-card:hover {
+      border-color: rgba(77, 217, 255, 0.25);
+      transform: translateY(-4px);
+      background: var(--surface2);
+    }
+
+    .expertise-card:hover::before { transform: scaleX(1); }
+
+    .expertise-icon {
+      width: 44px; height: 44px;
+      background: var(--ice-glow);
+      border: 1px solid var(--ice-dim);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .expertise-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+
+    .expertise-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* EXPERIENCE */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--ice), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 3.5rem 2.5rem;
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: slideIn 0.5s ease forwards;
+    }
+
+    .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+    .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -4px; top: 6px;
+      width: 9px; height: 9px;
+      background: var(--ice);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px var(--bg), 0 0 0 4px var(--ice-dim);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-company {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--white);
+    }
+
+    .timeline-date {
+      font-size: 0.8rem;
+      color: var(--ice);
+      background: var(--ice-glow);
+      border: 1px solid var(--ice-dim);
+      padding: 0.2rem 0.8rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .timeline-role {
+      font-size: 0.85rem;
+      color: var(--ice);
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .timeline-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 4px;
+      background: rgba(77, 217, 255, 0.06);
+      border: 1px solid rgba(77, 217, 255, 0.15);
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    /* SKILLS */
+    #skills { background: var(--surface); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-group h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ice);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(77, 217, 255, 0.15);
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-pill {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 6px;
+      background: var(--bg);
+      border: 1px solid rgba(77, 217, 255, 0.12);
+      color: var(--text);
+      transition: all 0.2s;
+    }
+
+    .skill-pill:hover {
+      background: var(--ice-glow);
+      border-color: var(--ice);
+      color: var(--ice);
+    }
+
+    /* CERTIFICATIONS */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .cert-card {
+      background: var(--surface);
+      border: 1px solid rgba(77, 217, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.8rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      transition: all 0.3s;
+    }
+
+    .cert-card:hover {
+      border-color: rgba(77, 217, 255, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(77, 217, 255, 0.05);
+    }
+
+    .cert-icon {
+      width: 40px; height: 40px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--ice-dim), rgba(77, 217, 255, 0.05));
+      border: 1px solid var(--ice-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .cert-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+
+    .cert-issuer {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+    #contact {
+      text-align: center;
+    }
+
+    .contact-card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid rgba(77, 217, 255, 0.15);
+      border-radius: 20px;
+      padding: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: 50%; transform: translateX(-50%);
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(77, 217, 255, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-card h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      background: var(--bg);
+      border: 1px solid rgba(77, 217, 255, 0.12);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: all 0.2s;
+    }
+
+    .contact-link:hover {
+      background: var(--ice-glow);
+      border-color: var(--ice);
+      color: var(--ice);
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid rgba(77, 217, 255, 0.06);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes spin-reverse {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 2rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 7rem 2rem 3rem; gap: 3rem; }
+      .hero-visual { display: none; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      section { padding: 4rem 2rem; }
+      .contact-card { padding: 2rem; }
+    }
+  </style>
 </head>
 <body>
-    <div class="resume-container">
-        <header class="header">
-            <div class="header-content">
-                <h1 class="name">NIHARIKA</h1>
-                <p class="title">Data Analyst & Engineer Intern</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span>📧</span>
-                        <span>neha020897@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>📱</span>
-                        <span>+91 8143872626</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>📍</span>
-                        <span>Hyderabad, India</span>
-                    </div>
-                </div>
-            </div>
-        </header>
 
-        <main class="main-content">
-            <section class="section">
-                <h2 class="section-title">Professional Summary</h2>
-                <p class="summary">
-                    Results-driven professional with 2+ years of experience in business analysis, data analytics, and quality engineering. Proven expertise in SQL, data visualization tools (Tableau, Power BI), and analytical platforms (Google Analytics, CleverTap). Strong background in A/B testing, market research, and predictive analytics. Seeking to leverage technical skills and analytical mindset in a data engineer/analyst intern role to drive data-driven decision making.
-                </p>
-            </section>
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">PKB</a>
+    <ul class="nav-links">
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-            <section class="section">
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Data & Analytics</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">SQL</span>
-                            <span class="skill-tag">Data Analysis</span>
-                            <span class="skill-tag">Tableau</span>
-                            <span class="skill-tag">Power BI</span>
-                            <span class="skill-tag">Predictive Analytics</span>
-                            <span class="skill-tag">A/B Testing</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Analytics Platforms</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Google Analytics</span>
-                            <span class="skill-tag">CleverTap</span>
-                            <span class="skill-tag">CRM Analytics</span>
-                            <span class="skill-tag">Segmentation</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Technical Tools</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Postman</span>
-                            <span class="skill-tag">REST APIs</span>
-                            <span class="skill-tag">HTML</span>
-                            <span class="skill-tag">CSS</span>
-                            <span class="skill-tag">Excel</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Business Intelligence</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Market Research</span>
-                            <span class="skill-tag">Business Analytics</span>
-                            <span class="skill-tag">Data Visualization</span>
-                            <span class="skill-tag">Reporting</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2 class="section-title">Professional Experience</h2>
-                
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <div class="job-title">Business Analyst</div>
-                            <div class="company">Brit Leelaa UK Limited</div>
-                        </div>
-                        <div class="duration">Mar 2022 - Jan 2024</div>
-                    </div>
-                    <ul class="achievements">
-                        <li>Analyzed customer data using SQL and Excel to identify behavioral patterns and optimize marketing campaigns</li>
-                        <li>Implemented advanced segmentation strategies based on customer actions, increasing campaign effectiveness by analyzing engagement metrics</li>
-                        <li>Created comprehensive analytical reports using data visualization tools to track campaign performance and ROI</li>
-                        <li>Utilized CleverTap analytics platform to enhance customer lifecycle strategies and improve engagement rates</li>
-                        <li>Conducted market research and statistical analysis to identify customer needs and develop data-driven strategies</li>
-                        <li>Collaborated with cross-functional teams to translate business requirements into actionable data insights</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <div class="job-title">Product Quality Engineer</div>
-                            <div class="company">Phenom People</div>
-                        </div>
-                        <div class="duration">Apr 2021 - Jan 2022</div>
-                    </div>
-                    <ul class="achievements">
-                        <li>Performed data analysis using SQL queries to analyze quality metrics and identify improvement opportunities</li>
-                        <li>Designed and executed comprehensive test cases, managing test data and documenting results systematically</li>
-                        <li>Tested RESTful APIs using Postman to ensure efficient data transfer and system integration</li>
-                        <li>Analyzed quality data patterns to identify root causes of issues, leading to improved product quality</li>
-                        <li>Created detailed documentation and reports for quality assurance processes and outcomes</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2 class="section-title">Education</h2>
-                <div class="education">
-                    <div class="degree">Bachelor of Technology - Electronics & Telecommunication</div>
-                    <div class="university">JNTU College of Engineering, Hyderabad</div>
-                    <div class="education-details">2021 • CGPA: 6.7/10</div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2 class="section-title">Certifications</h2>
-                <div class="certifications">
-                    <div class="cert-item">
-                        <div class="cert-title">Transitioning to Product Management</div>
-                        <div class="cert-provider">LinkedIn Learning</div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-title">Becoming a Product Manager: Complete Guide</div>
-                        <div class="cert-provider">LIBA</div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-title">Technical Sales: Sales Engineer Role</div>
-                        <div class="cert-provider">LinkedIn Learning</div>
-                    </div>
-                </div>
-            </section>
-        </main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Available for New Opportunities</div>
+      <h1>Prasad Kumar <span>Boddu</span></h1>
+      <p class="hero-desc">
+        Certified Snowflake Architect and Senior Data Engineer with 17+ years building enterprise data platforms, AI-powered analytics, and cloud warehouses at scale.
+      </p>
+      <div class="hero-cta">
+        <a href="mailto:boddu1411@gmail.com" class="btn btn-primary">Get in Touch</a>
+        <a href="#experience" class="btn btn-outline">View Experience</a>
+      </div>
     </div>
+    <div class="hero-visual">
+      <div class="snowflake-ring">
+        <span class="orbit-dot"></span>
+        <span class="orbit-dot"></span>
+        <span class="orbit-dot"></span>
+        <span class="orbit-dot"></span>
+        <div class="center-card">
+          <div class="years">17+</div>
+          <div class="label">Years of Expertise</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number">5+</div>
+      <div class="stat-label">Companies Led</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">3+</div>
+      <div class="stat-label">Full WH Migrations</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">4</div>
+      <div class="stat-label">Certifications</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">8+</div>
+      <div class="stat-label">Team Members Led</div>
+    </div>
+  </div>
+
+  <!-- EXPERTISE -->
+  <section id="expertise">
+    <div class="section-tag">What I Do</div>
+    <h2 class="section-title">Core Expertise</h2>
+    <div class="expertise-grid">
+      <div class="expertise-card">
+        <div class="expertise-icon">❄️</div>
+        <h3>Snowflake Architecture</h3>
+        <p>Full-stack Snowflake implementation from account setup to advanced features: Streams, Dynamic Tables, Cortex AI, Snowpark, RBAC, and cost optimization at scale.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">🏗️</div>
+        <h3>Data Vault 2.0 Modeling</h3>
+        <p>Enterprise data models designed for accuracy and flexibility using Data Vault 2.0 and Kimball Dimensional methodologies. Automated with DBT and AutomateDV macros.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">🤖</div>
+        <h3>AI & ML Integration</h3>
+        <p>Built RAG pipelines, document processing systems, and predictive analytics using Snowflake Cortex, OpenAI, LangChain, and Amazon Bedrock.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">⚡</div>
+        <h3>ETL/ELT Pipelines</h3>
+        <p>High-volume data pipelines built with Matillion, SAP BODS, AWS Glue, Lambda, and Airflow. Transformed raw data into production-ready business views.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">🔄</div>
+        <h3>Cloud Migrations</h3>
+        <p>Led full migrations from SAP BW/HANA and MS SQL Server to Snowflake across multiple industries including food manufacturing, retail, and financial services.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">🛡️</div>
+        <h3>Data Governance & Security</h3>
+        <p>Implemented RBAC, tag-based dynamic masking, row-level access policies, and encryption management to meet enterprise compliance requirements.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-tag">Where I've Worked</div>
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <div class="timeline-company">Lamb Weston</div>
+          <div class="timeline-date">Jan 2024 — Present</div>
+        </div>
+        <div class="timeline-role">Technical Data Architect & Lead Snowflake Developer</div>
+        <div class="timeline-desc">
+          Leading a team of 8 engineers on a 15-month SAP BW/HANA to Snowflake migration. Built analytics products for Supply Chain, Finance, and Logistics that drive sales growth and cost reduction for a global leader in frozen potato products operating in 100+ countries.
+        </div>
+        <div class="timeline-stack">
+          <span class="tag">Snowflake</span><span class="tag">Data Vault 2.0</span><span class="tag">SAP BW/HANA</span><span class="tag">AWS Glue</span><span class="tag">Airflow</span><span class="tag">DBT</span><span class="tag">Power BI</span><span class="tag">DOMO</span><span class="tag">Python</span><span class="tag">Snowpark</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <div class="timeline-company">Leslie's Pool Supply</div>
+          <div class="timeline-date">Jan 2023 — Dec 2023</div>
+        </div>
+        <div class="timeline-role">Technical Data Architect & Lead Snowflake Developer</div>
+        <div class="timeline-desc">
+          Led full MS SQL Server to Snowflake migration and built Data Vault 2.0 models for Supply Chain and Finance analytics. Delivered key inventory metrics including turnover rate, order cycle time, and forecast accuracy.
+        </div>
+        <div class="timeline-stack">
+          <span class="tag">Snowflake</span><span class="tag">Matillion</span><span class="tag">GCP BigQuery</span><span class="tag">SAP ECC</span><span class="tag">Data Vault 2.0</span><span class="tag">Power BI</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <div class="timeline-company">ServiceNow</div>
+          <div class="timeline-date">Nov 2016 — Jan 2023</div>
+        </div>
+        <div class="timeline-role">Staff Data Informatics Engineer</div>
+        <div class="timeline-desc">
+          Six-year tenure across People Analytics, Customer Support, Product Operations, and Value Realization portfolios. Architected Snowflake implementations, built predictive metrics integrating Snowflake with Databricks, and delivered enriched business views used across the organization.
+        </div>
+        <div class="timeline-stack">
+          <span class="tag">Snowflake</span><span class="tag">SAP HANA</span><span class="tag">Matillion</span><span class="tag">Databricks</span><span class="tag">Azure ML</span><span class="tag">Tableau</span><span class="tag">Power BI</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <div class="timeline-company">Capgemini — AIG</div>
+          <div class="timeline-date">Oct 2010 — May 2015</div>
+        </div>
+        <div class="timeline-role">Senior Data Engineer</div>
+        <div class="timeline-desc">
+          Built HANA multidimensional models for AIG global operations. Created Loss Triangle Analysis and Fraud Detection models for insurance claims processing. Also delivered ETL solutions for Firemen's Fund Insurance Company using SAP BODS.
+        </div>
+        <div class="timeline-stack">
+          <span class="tag">SAP HANA</span><span class="tag">BODS</span><span class="tag">Oracle</span><span class="tag">DB2</span><span class="tag">Tableau</span><span class="tag">SSRS</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <div class="timeline-company">Bank of America / Lowes</div>
+          <div class="timeline-date">Oct 2007 — Oct 2010</div>
+        </div>
+        <div class="timeline-role">Data Engineer / Programmer Analyst</div>
+        <div class="timeline-desc">
+          Early career roles building ETL pipelines for large enterprise data integration projects. Set standards for data validation, cleansing, and transformation while migrating legacy systems to modern platforms.
+        </div>
+        <div class="timeline-stack">
+          <span class="tag">Oracle</span><span class="tag">BODS</span><span class="tag">DB2</span><span class="tag">SSIS</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-tag">Technical Stack</div>
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+
+      <div class="skill-group">
+        <h3>Cloud Platforms</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Snowflake</span>
+          <span class="skill-pill">AWS</span>
+          <span class="skill-pill">Azure</span>
+          <span class="skill-pill">GCP BigQuery</span>
+          <span class="skill-pill">Databricks</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Snowflake Core</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Streams (CDC)</span>
+          <span class="skill-pill">Snowpipe</span>
+          <span class="skill-pill">Dynamic Tables</span>
+          <span class="skill-pill">Snowpark</span>
+          <span class="skill-pill">Cortex AI</span>
+          <span class="skill-pill">RBAC</span>
+          <span class="skill-pill">Time Travel</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>ETL / ELT Tools</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">DBT</span>
+          <span class="skill-pill">Matillion</span>
+          <span class="skill-pill">SAP BODS</span>
+          <span class="skill-pill">AWS Glue</span>
+          <span class="skill-pill">Airflow</span>
+          <span class="skill-pill">Lambda</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Data Modeling</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Data Vault 2.0</span>
+          <span class="skill-pill">Kimball</span>
+          <span class="skill-pill">Medallion Architecture</span>
+          <span class="skill-pill">Data Mesh</span>
+          <span class="skill-pill">ER Studio</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>AI / ML</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Cortex LLMs</span>
+          <span class="skill-pill">RAG Pipelines</span>
+          <span class="skill-pill">OpenAI</span>
+          <span class="skill-pill">LangChain</span>
+          <span class="skill-pill">Amazon Bedrock</span>
+          <span class="skill-pill">HuggingFace</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Programming & BI</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">SQL / Dynamic SQL</span>
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">Pandas</span>
+          <span class="skill-pill">Streamlit</span>
+          <span class="skill-pill">Power BI</span>
+          <span class="skill-pill">Tableau</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="section-tag">Credentials</div>
+    <h2 class="section-title">Certifications</h2>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-icon">❄️</div>
+        <div>
+          <div class="cert-name">SnowPRO Advanced Architect</div>
+          <div class="cert-issuer">Snowflake Inc.</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">❄️</div>
+        <div>
+          <div class="cert-name">SnowPRO Core</div>
+          <div class="cert-issuer">Snowflake Inc.</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🤖</div>
+        <div>
+          <div class="cert-name">Gen AI with Snowflake</div>
+          <div class="cert-issuer">Snowflake Inc.</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🔧</div>
+        <div>
+          <div class="cert-name">DBT Data Engineer</div>
+          <div class="cert-issuer">dbt Labs</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div>
+          <div class="cert-name">C_HANAIMP1 Certified Associate</div>
+          <div class="cert-issuer">SAP</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-card">
+      <h2>Let's Work Together</h2>
+      <p>Open to senior data architecture roles, consulting engagements, and Snowflake transformation projects.</p>
+      <div class="contact-links">
+        <a href="mailto:boddu1411@gmail.com" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          boddu1411@gmail.com
+        </a>
+        <a href="tel:+18054225377" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17v-.08z"/></svg>
+          +1 805 422 5377
+        </a>
+        <a href="https://www.linkedin.com/in/prasad-kumar-boddu" target="_blank" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Prasad Kumar Boddu &mdash; Aubrey, TX &mdash; Data Architect & Snowflake Certified Expert</p>
+  </footer>
+
 </body>
 </html>
